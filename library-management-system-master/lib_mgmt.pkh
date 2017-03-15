@@ -1,0 +1,44 @@
+CONNECT lib_manager/05031992@xe;
+CREATE OR REPLACE PACKAGE lib_mgmt
+AS
+	PROCEDURE book_issue_return(p_book_id	IN	NUMBER
+				   ,p_member_id	IN	NUMBER
+				   ,p_mode	IN	VARCHAR2
+				   );
+	PROCEDURE enter_and_maintain_books(p_book_id		IN	VARCHAR2
+					  ,p_book_name		IN	VARCHAR2
+					  ,p_author		IN	VARCHAR2	
+					  ,p_publisher		IN	VARCHAR2	
+					  ,p_purchase_date	IN	DATE
+					  ,p_purchase_price	IN	NUMBER
+					  ,p_book_category_id	IN	VARCHAR2	
+					  ,p_mode		IN	VARCHAR2	
+					  );
+	PROCEDURE enter_and_maintain_members(p_member_id		IN	NUMBER
+					    ,p_first_name		IN	VARCHAR2
+					    ,p_last_name		IN	VARCHAR2
+					    ,p_contact_no		IN	NUMBER
+					    ,p_email			IN	VARCHAR2
+					    ,p_date_of_birth		IN	DATE
+					    ,p_effective_start_date	IN	DATE
+					    ,p_effective_end_date	IN	DATE
+					    ,p_mode			IN	VARCHAR2
+					    );
+	PROCEDURE enter_and_maintain_address(p_member_id		IN	NUMBER
+					    ,p_address_line_1		IN	VARCHAR2 
+					    ,p_address_line_2		IN	VARCHAR2
+					    ,p_address_line_3		IN	VARCHAR2
+					    ,p_city			IN	VARCHAR2
+					    ,p_pin_code			IN	NUMBER
+					    ,p_state			IN	VARCHAR2
+					    ,p_country			IN	VARCHAR2
+					    ,p_address_type		IN	VARCHAR2
+					    ,p_mode			IN	VARCHAR2
+					    );
+	PROCEDURE get_fine	(p_book_id	IN	NUMBER
+				,p_member_id	IN	NUMBER
+				);
+END;
+/
+
+
